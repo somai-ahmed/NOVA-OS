@@ -86,7 +86,7 @@ void afficherFile(FileAttente f) {
                p.memoireRequise,
                etatToString(p.etat));
         
-        courant = courant->suivant;
+        n = n->suivant;
     }
 
     printf("╚════╩══════════════════════╩══════╩══════╩══════════╩══════════╩══════════╩═════════╩════════════════╝\n");
