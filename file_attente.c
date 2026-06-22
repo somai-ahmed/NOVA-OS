@@ -84,7 +84,7 @@ void afficherFile(FileAttente f) {
                p.tempsRestant,
                p.tempsAttente,
                p.memoireRequise,
-               etatToString(p.etat));
+               etatVersTexte(p.etat));
         
         n = n->suivant;
     }
