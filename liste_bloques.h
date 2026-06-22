@@ -12,7 +12,7 @@ typedef struct lastruct{
     NOEUD tete;
     NOEUD queue;
     int       taille;
-}*ListeBloques;
+}lastruct ,*ListeBloques;
 
 void      creerListeBloques(ListeBloques l);
 void      insererBloque(ListeBloques l, Processus p);
