@@ -1,9 +1,15 @@
 #include "file_attente.h" 
 
 void creerFile(FileAttente f){
+    FileAttente f = (*FileAttente)malloc(sizeof(lastruct));
+    if(!f){
+        printf("ERREUR ALLOCATION MEMOIRE \n");
+    }
+    else{
     f->tete = NULL;
     f->fin = NULL ;
     f->taille = 0 ;
+}
 }
 
 void enfiler(FileAttente f, Processus p){ //PRINCIPE FIFO :: enfiler ->ajpouter a la fin
@@ -43,12 +49,32 @@ Processus defiler(FileAttente *f){ //defiler le premier element :: f->tete
 
 }
 
-bool estVideFile(FileAttente *f){
+bool estVideFile(FileAttente f){
     retrun(f==NULL || f->taille == 0);
 }
 
-void afficherFile(FileAttente *f){
+void afficherFile(FileAttente f){
     
+}
+
+
+void libererFile(FileAttente f){
+    if(estVideFile(f)){
+        printf("FILE ATTENTE DEJA VIDE \n");
+        free(f);
+        retrun ;
+    }
+    else{
+        NOEUD n;
+        while(f->taille !=0){
+            n = f->tete ;
+            f->tete = n->suivant ;
+            free(n);
+            f->taille--;
+        }
+        free(f);
+        retrun;
+    }
 }
 
 
