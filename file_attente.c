@@ -61,7 +61,7 @@ void afficherFile(FileAttente f) {
         return;
     }
 
-    NOEUD n = f->tete;
+    NOEUD n = f->tete; /*la cellule courante*/
     
     printf("\n");
     printf("╔════════════════════════════════════════════════════════════════════════════════════════════════════╗\n");
