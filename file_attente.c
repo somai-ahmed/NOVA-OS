@@ -53,8 +53,44 @@ bool estVideFile(FileAttente f){
     retrun(f==NULL || f->taille == 0);
 }
 
-void afficherFile(FileAttente f){
+void afficherFile(FileAttente f) {
+    if (f == NULL || estVide(f)) {
+        printf("\n╔══════════════════════════════════════╗\n");
+        printf("║        FILE D'ATTENTE VIDE            ║\n");
+        printf("╚══════════════════════════════════════╝\n\n");
+        return;
+    }
+
+    NOEUD n = f->tete;
     
+    printf("\n");
+    printf("╔════════════════════════════════════════════════════════════════════════════════════════════════════╗\n");
+    printf("║                                  FILE D'ATTENTE (%d processus)                                      ║\n", f->taille);
+    printf("╠════╦══════════════════════╦══════╦══════╦══════════╦══════════╦══════════╦═════════╦════════════════╣\n");
+    printf("║ %-2s ║ %-20s ║ %-4s ║ %-4s ║ %-8s ║ %-8s ║ %-8s ║ %-7s ║ %-14s ║\n",
+           "PID", "NOM", "ARR", "PRI", "EXEC", "RESTANT", "ATTENTE", "MEMOIRE", "ETAT");
+    printf("╠════╬══════════════════════╬══════╬══════╬══════════╬══════════╬══════════╬═════════╬════════════════╣\n");
+
+    // Parcours et affichage de chaque nœud
+    while (n != NULL) {
+        Processus p = courant->info;
+        
+        printf("║ %-2d ║ %-20s ║ %-4d ║ %-4d ║ %-8d ║ %-8d ║ %-8d ║ %-7d ║ %-14s ║\n",
+               p.pid,
+               p.nom,
+               p.tempsArrivee,
+               p.priorite,
+               p.tempsExecution,
+               p.tempsRestant,
+               p.tempsAttente,
+               p.memoireRequise,
+               etatToString(p.etat));
+        
+        courant = courant->suivant;
+    }
+
+    printf("╚════╩══════════════════════╩══════╩══════╩══════════╩══════════╩══════════╩═════════╩════════════════╝\n");
+    printf("\n");
 }
 
 
