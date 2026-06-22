@@ -35,7 +35,7 @@ void enfiler(FileAttente f, Processus p){ //PRINCIPE FIFO :: enfiler ->ajpouter 
     }
 }
 
-Processus defiler(FileAttente *f){ //defiler le premier element :: f->tete
+Processus defiler(FileAttente f){ //defiler le premier element :: f->tete
     Processus p ;
     if(n==NULL){
         printf("\nFILE VIDE !");
