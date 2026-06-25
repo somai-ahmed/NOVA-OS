@@ -1,6 +1,6 @@
 #include "liste_bloques.h"
 
-void creerListeBloques(ListeBloques *l){
+void creerListeBloques(ListeBloques l){
     ListeBloques l = (*ListeBloques)malloc(sizeof(lastruct));
     if(!l){
         printf("erreur d'allocation memoire");
@@ -112,7 +112,7 @@ void afficherBloques(ListeBloques l){
                courant->info.tempsExecution,
                courant->info.memoireRequise,
                "BLOQUE");
-        courant = courant->suivant;
+        n = n->suivant;
     }
 
     printf("╚════╩══════════════════════╩══════╩══════════╩══════════╩════════════╝\n");
